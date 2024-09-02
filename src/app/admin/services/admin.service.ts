@@ -67,6 +67,31 @@ export class AdminService {
     );
   }
 
+  postFaq(productId: number, faqDto: any): Observable<any> {
+    return this.http.post(
+      this.BASIC_URL + `api/admin/faq/${productId}`,
+      faqDto,
+      {
+        headers: this.createAuthorizationHeader(),
+      }
+    );
+  }
+
+  getProductById(productId: number): Observable<any> {
+    return this.http.get(this.BASIC_URL + `api/admin/product/${productId}`, {
+      headers: this.createAuthorizationHeader(),
+    });
+  }
+
+  updateProduct(productId: number, productDto: any): Observable<any> {
+    return this.http.put(
+      this.BASIC_URL + `api/admin/product/${productId}`,
+      productDto,
+      {
+        headers: this.createAuthorizationHeader(),
+      }
+    );
+  }
   private createAuthorizationHeader(): HttpHeaders {
     return new HttpHeaders().set(
       'Authorization',

@@ -1,6 +1,6 @@
 <div class="container">
-    <h2>Add Product</h2>
-     <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+    <h2>Update Product</h2>
+     <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
         <div class="file-upload-container">
             <label class="file-upload-label">
              <span>Select a File</span>
@@ -10,6 +10,11 @@
             <div *ngIf="selectedFile" class="image-preview">
              <div class="circle-image">
                  <img [src]="imagePreview" alt="Selected Image" class="preview-image">
+             </div>
+            </div>
+            <div *ngIf="existingImage" class="image-preview">
+             <div class="circle-image">
+                 <img [src]="existingImage" alt="Selected Image" class="preview-image">
              </div>
             </div>
         </div>
@@ -39,6 +44,6 @@
         <textarea matInput placeholder="Description" formControlName="description" ></textarea>
         <mat-error *ngIf="productForm.get('description')?.hasError('required')">Ths input is Required!!!</mat-error>
        </mat-form-field>
-       <button mat-raised-button color="primary" type="submit">Add Product</button>
+       <button mat-raised-button color="primary" type="submit">Update Product</button>
     </form>
 </div>

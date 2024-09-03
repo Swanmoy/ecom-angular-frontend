@@ -1,0 +1,45 @@
+<div class="center-container" >
+    <div class="product-card">
+        <div class="product-image">
+            <img [src]="product.processedImg" alt="{{product.name}} Image">
+        </div>
+        <div class="product-details">
+            <h2>{{product.name}}</h2>
+            <p class="description">{{product.description}}</p>
+            <p class="price">Price: ${{product.price}}</p>
+            <p class="category">Category: {{product.categoryName}}</p>
+        </div>
+
+    </div>
+</div>
+<h1 class="section-heading" >Customer Reviews</h1>
+<div class="review-list">
+    <div class="center-container">
+        <div class="review-card" *ngFor="let review of reviews">
+            <div class="review-image">
+                <img [src]="review.processedImg" alt="{{review.description}} Image" class="small-image" />
+            </div>
+            <div class="review-details">
+                <h2>{{review.description}}</h2>
+                <div class="details-row">
+                    <p class="rating">Rating: {{review.rating}}</p>
+                    <p class="username">Username: {{review.username}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 class="section-heading" >Frequently Asked Questions</h1>
+<div class="faq-list">
+    <div class="center-container">
+        <div class="faq-card" *ngFor="let faq of FAQS">
+            <div class="faq-details">
+                <p class="question">Question:</p>
+                <p class="question-text">{{faq.question}}</p>
+                <p class="answer">Answer:</p>
+                <p class="answer-text">{{faq.answer}}</p>
+            </div>
+        </div>
+    </div>
+</div>

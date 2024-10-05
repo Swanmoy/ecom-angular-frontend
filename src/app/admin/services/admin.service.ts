@@ -82,6 +82,11 @@ export class AdminService {
       headers: this.createAuthorizationHeader(),
     });
   }
+  getAnalytics(): Observable<any> {
+    return this.http.get(this.BASIC_URL + `api/admin/order/analytics`, {
+      headers: this.createAuthorizationHeader(),
+    });
+  }
 
   updateProduct(productId: number, productDto: any): Observable<any> {
     return this.http.put(

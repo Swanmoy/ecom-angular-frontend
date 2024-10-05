@@ -7,7 +7,9 @@
             <h2>{{product.name}}</h2>
             <p class="description">{{product.description}}</p>
             <p class="price">Price: ${{product.price}}</p>
-            <p class="category">Category: {{product.categoryName}}</p>
+            <p class="category">Category: {{product.categoryName}}
+                <mat-icon class="heart-icon" style="cursor: pointer; margin-top: 10px;" (click)="addToWishlist()">favorite_border</mat-icon>
+            </p>
         </div>
 
     </div>

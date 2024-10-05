@@ -9,9 +9,10 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TrackOrderComponent } from './track-order/track-order.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, SignupComponent],
+  declarations: [AppComponent, LoginComponent, SignupComponent, TrackOrderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

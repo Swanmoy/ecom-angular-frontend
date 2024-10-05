@@ -77,6 +77,7 @@
 .review-card .details-row {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
   margin-top: 10px;
 }
 
@@ -117,6 +118,7 @@
   margin: 20px 0;
   color: #333;
   margin-top: 10px;
+  text-align: center;
 }
 
 .small-image {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserStorageService } from 'src/app/services/storage/user-storage.service';
 
 @Component({
   selector: 'app-view-product-detail',
@@ -11,8 +12,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ViewProductDetailComponent implements OnInit {
   productId: number = this.activatedRoute.snapshot.params['productId'];
   product!: any;
-  FAQS!: any[];
-  reviews!: any[];
+  FAQS: any[] = [];
+  reviews: any[] = [];
 
   constructor(
     private customerService: CustomerService,
@@ -38,5 +39,25 @@ export class ViewProductDetailComponent implements OnInit {
           this.reviews.push(element);
         });
       });
+    console.log(this.reviews);
+  }
+
+  addToWishlist() {
+    const wishlistDto = {
+      userId: UserStorageService.getUserId(),
+      productId: this.productId,
+    };
+    this.customerService.addProductToWishlist(wishlistDto).subscribe((res) => {
+      console.log(res);
+      if (res.id != null) {
+        this.snackBar.open('Product Added to Wishlist Successsfully', 'Close', {
+          duration: 5000,
+        });
+      } else {
+        this.snackBar.open('Something Went Wrong!', 'ERROR', {
+          duration: 5000,
+        });
+      }
+    });
   }
 }
